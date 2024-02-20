@@ -1,0 +1,82 @@
+<%- include('partials/header.ejs'); -%>
+
+<style>
+ html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.bg {
+  /* The image used */
+  background-image: url("https://t3.ftcdn.net/jpg/03/52/42/52/360_F_352425240_r7u7wVzLFbeCKhegh1SCp6R4J8ccZFwH.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.box {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  grid-template-areas:
+    "heading heading heading heading"
+    "monday tuesday wednesday sunday"
+    "thursday friday saturday sunday";
+  width: 80%;
+  margin: auto;
+  margin-left: 287px
+}
+
+.item {
+  padding: 20px;
+  text-align: center;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.item-1 { grid-area: monday; }
+.item-2 { grid-area: tuesday; }
+.item-3 { grid-area: wednesday; }
+.item-4 { grid-area: thursday; }
+.item-5 { grid-area: friday; }
+.item-6 { grid-area: saturday; grid-column: span 2; }
+.item-7 { grid-area: sunday; grid-row: span 2; }
+
+.heading {
+  grid-area: heading;
+  grid-column: span 3;
+  text-align: center;
+  padding: 20px;
+  background-color: #d9efe0;
+  color: white;
+  border-radius: 5px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: start;
+}
+
+</style>
+<script>
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const date=new Date();
+  let month=months[date.getMonth()];
+</script>
+<div class="box">
+  <div class="heading">
+    <h1>Hello new week! </h1>
+  </div>
+  <div class="item item-1"><a href="/Monday" name="Monday">Monday</a></div>
+  <div class="item item-2"><a href="/Tuesday" name="Tuesday">Tuesday</a></div>
+  <div class="item item-3"><a href="/Wednesday" name="Wednesday">Wednesday</a></div>
+  <div class="item item-4"><a href="/Thursday" name="Thursday">Thursday</a></div>
+  <div class="item item-5"><a href="/Friday" name="Friday">Friday</a></div>
+  <div class="item item-6"><a href="/Saturday" name="Saturday">Saturday</a></div>
+  <div class="item item-7"><a href="/Sunday" name="Sunday">Sunday</a></div>
+</div>
+
+<%- include('partials/footer.ejs'); -%>
